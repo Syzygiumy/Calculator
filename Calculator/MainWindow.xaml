@@ -1,0 +1,801 @@
+﻿<Window x:Class="Calculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calculator"
+        mc:Ignorable="d"
+        Title="Calculator"
+        Height="550" 
+        Width="620" 
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Images/c613ca3cad57b132362656ddd31ccdab.jpg" TileMode="FlipX"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="113*"/>
+            <RowDefinition Height="408*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" 
+                   Foreground="White" 
+                   Background="#FF383838" 
+                   Margin="0,0,0.6,2.8"
+                   />
+        <!--Циферки-->
+        <TextBox
+                   Margin="10,48,9.6,8.8"
+                   FontSize="48" 
+            TextDecorations="{x:Null}" 
+            TextAlignment="Right" 
+            FontFamily="Lucida Bright" 
+            BorderBrush="#FF232325"
+            x:Name="tbxNum"
+            IsReadOnly="True">
+            <TextBlock.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFB3B3B3" Offset="0"/>
+                    <GradientStop Color="#FFD0D0D0" Offset="1"/>
+                </LinearGradientBrush>
+            </TextBlock.Foreground>
+            <TextBox.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF222020" Offset="1"/>
+                    <GradientStop Color="#FF1F1B1B"/>
+                </LinearGradientBrush>
+            </TextBox.Background>
+
+            <!--Циферки-->
+        </TextBox>
+        <TextBlock Text="Calculator" 
+                   FontSize="36" 
+                   FontFamily="Agency FB" Margin="10,3,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="42" Width="117">
+            <TextBlock.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFB3B3B3" Offset="0"/>
+                    <GradientStop Color="#FFD0D0D0" Offset="1"/>
+                </LinearGradientBrush>
+            </TextBlock.Foreground>
+        </TextBlock>
+
+        <!--Кнопы-->
+
+        <Button Grid.Row="1"
+                Width="280"
+                Height="80" 
+                Content="+" FontSize="55" 
+                FontFamily="Lucida Bright" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top" 
+                Margin="315,216.2,0,0"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center" 
+                BorderBrush="{x:Null}"
+                x:Name="btnSumm"
+                Click="btnSumm_Click"
+                >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" 
+                                     MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FF282828" 
+                                  Offset="1"/>
+                    <GradientStop Color="#FF3C3C3C"/>
+                </LinearGradientBrush>
+            </Button.Background>
+            <Button.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" 
+                                     StartPoint="0.5,0">
+                    <GradientStop Color="#FFB3B3B3" 
+                                  Offset="0"/>
+                    <GradientStop Color="#FFD0D0D0"
+                                  Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Foreground>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button Grid.Row="1"
+                Width="80"
+                Height="80" 
+                Content="-" FontSize="55" 
+                FontFamily="Lucida Bright" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top" 
+                Margin="416,113.2,0,0"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center" 
+                BorderBrush="{x:Null}"
+                x:Name="btnMin"
+                Click="btnMin_Click"
+                >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" 
+                                     MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FF282828" 
+                                  Offset="1"/>
+                    <GradientStop Color="#FF3C3C3C"/>
+                </LinearGradientBrush>
+            </Button.Background>
+            <Button.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" 
+                                     StartPoint="0.5,0">
+                    <GradientStop Color="#FFB3B3B3" 
+                                  Offset="0"/>
+                    <GradientStop Color="#FFD0D0D0"
+                                  Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Foreground>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button Grid.Row="1"
+                Width="80"
+                Height="80" 
+                Content="x" FontSize="55" 
+                FontFamily="Lucida Bright" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top" 
+                Margin="315,113.2,0,0"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center" 
+                BorderBrush="{x:Null}"
+                x:Name="btnMulti"
+                Click="btnMulti_Click"
+                >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" 
+                                     MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FF282828" 
+                                  Offset="1"/>
+                    <GradientStop Color="#FF3C3C3C"/>
+                </LinearGradientBrush>
+            </Button.Background>
+            <Button.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" 
+                                     StartPoint="0.5,0">
+                    <GradientStop Color="#FFB3B3B3" 
+                                  Offset="0"/>
+                    <GradientStop Color="#FFD0D0D0"
+                                  Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Foreground>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button Grid.Row="1"
+                Width="80"
+                Height="80" 
+                Content="/" FontSize="50" 
+                FontFamily="Lucida Bright" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top" 
+                Margin="315,14.2,0,0"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center" 
+                BorderBrush="{x:Null}"
+                x:Name="btnDiv"
+                Click="btnDiv_Click"
+                >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" 
+                                     MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FF282828" 
+                                  Offset="1"/>
+                    <GradientStop Color="#FF3C3C3C"/>
+                </LinearGradientBrush>
+            </Button.Background>
+            <Button.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" 
+                                     StartPoint="0.5,0">
+                    <GradientStop Color="#FFB3B3B3" 
+                                  Offset="0"/>
+                    <GradientStop Color="#FFD0D0D0"
+                                  Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Foreground>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button Grid.Row="1"
+                Width="80"
+                Height="80" 
+                Content="%" FontSize="55" 
+                FontFamily="Lucida Bright" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top" 
+                Margin="515,113.2,0,0"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center" 
+                BorderBrush="{x:Null}"
+                x:Name="btnPerc"
+                Click="btnPerc_Click"
+                >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" 
+                                     MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FF282828" 
+                                  Offset="1"/>
+                    <GradientStop Color="#FF3C3C3C"/>
+                </LinearGradientBrush>
+            </Button.Background>
+            <Button.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" 
+                                     StartPoint="0.5,0">
+                    <GradientStop Color="#FFB3B3B3" 
+                                  Offset="0"/>
+                    <GradientStop Color="#FFD0D0D0"
+                                  Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Foreground>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button Grid.Row="1"
+                Width="80"
+                Height="80" 
+                Content="√" FontSize="55" 
+                FontFamily="Lucida Bright" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top" 
+                Margin="416,11.2,0,0"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center" 
+                BorderBrush="{x:Null}"
+                x:Name="btnRad"
+                Click="btnRad_Click"
+                >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" 
+                                     MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FF282828" 
+                                  Offset="1"/>
+                    <GradientStop Color="#FF3C3C3C"/>
+                </LinearGradientBrush>
+            </Button.Background>
+            <Button.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" 
+                                     StartPoint="0.5,0">
+                    <GradientStop Color="#FFB3B3B3" 
+                                  Offset="0"/>
+                    <GradientStop Color="#FFD0D0D0"
+                                  Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Foreground>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button Grid.Row="1"
+                Width="80"
+                Height="80" 
+                Content="CE" FontSize="55" 
+                FontFamily="Agency FB" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top" 
+                Margin="515,11.2,0,0"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center" 
+                BorderBrush="{x:Null}"
+                x:Name="btnClear"
+                Click="btnClear_Click"
+                >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFB3B3B3" Offset="0"/>
+                    <GradientStop Color="#FFD0D0D0" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+            <Button.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF222020" Offset="1"/>
+                    <GradientStop Color="#FF1F1B1B"/>
+                </LinearGradientBrush>
+            </Button.Foreground>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button Grid.Row="1"
+                Width="280"
+                Height="80" 
+                Content="=" FontSize="55" 
+                FontFamily="Lucida Bright" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top" 
+                Margin="315,315.2,0,0"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center" 
+                BorderBrush="{x:Null}"
+                x:Name="btnEqual"
+                Click="btnEqual_Click"
+                >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" 
+                                     MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FF282828" 
+                                  Offset="1"/>
+                    <GradientStop Color="#FF3C3C3C"/>
+                </LinearGradientBrush>
+            </Button.Background>
+            <Button.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" 
+                                     StartPoint="0.5,0">
+                    <GradientStop Color="#FFB3B3B3" 
+                                  Offset="0"/>
+                    <GradientStop Color="#FFD0D0D0"
+                                  Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Foreground>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <!--Кнопы-->
+
+        <!--Цифры-->
+
+        <Button Grid.Row="1"
+                Width="80"
+                Height="80" 
+                Content="1" FontSize="45" 
+                FontFamily="Lucida Bright" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top" 
+                Margin="15,11.2,0,0"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center" 
+                BorderBrush="{x:Null}"
+                x:Name="btnNum1"
+                Click="btnNum1_Click"
+                >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFB3B3B3" Offset="0"/>
+                    <GradientStop Color="#FFD0D0D0" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+            <Button.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF222020" Offset="1"/>
+                    <GradientStop Color="#FF1F1B1B"/>
+                </LinearGradientBrush>
+            </Button.Foreground>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button Grid.Row="1"
+                Width="80"
+                Height="70" 
+                Content="2" FontSize="45" 
+                FontFamily="Lucida Bright" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top" 
+                Margin="115,11.2,0,0"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center" BorderBrush="{x:Null}"
+                >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" 
+                                     MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FF282828" 
+                                  Offset="1"/>
+                    <GradientStop Color="#FF3C3C3C"/>
+                </LinearGradientBrush>
+            </Button.Background>
+            <Button.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" 
+                                     StartPoint="0.5,0">
+                    <GradientStop Color="#FFB3B3B3" 
+                                  Offset="0"/>
+                    <GradientStop Color="#FFD0D0D0"
+                                  Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Foreground>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button Grid.Row="1"
+                Width="80"
+                Height="80" 
+                Content="2" FontSize="45" 
+                FontFamily="Lucida Bright" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top" 
+                Margin="115,11.2,0,0"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center" 
+                BorderBrush="{x:Null}"
+                x:Name="btnNum2"
+                Click="btnNum2_Click"
+                >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFB3B3B3" Offset="0"/>
+                    <GradientStop Color="#FFD0D0D0" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+            <Button.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF222020" Offset="1"/>
+                    <GradientStop Color="#FF1F1B1B"/>
+                </LinearGradientBrush>
+            </Button.Foreground>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button Grid.Row="1"
+                Width="80"
+                Height="80" 
+                Content="3" FontSize="45" 
+                FontFamily="Lucida Bright" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top" 
+                Margin="215,11.2,0,0"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center" 
+                BorderBrush="{x:Null}"
+                x:Name="btnNum3"
+                Click="btnNum3_Click"
+                >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFB3B3B3" Offset="0"/>
+                    <GradientStop Color="#FFD0D0D0" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+            <Button.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF222020" Offset="1"/>
+                    <GradientStop Color="#FF1F1B1B"/>
+                </LinearGradientBrush>
+            </Button.Foreground>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button Grid.Row="1"
+                Width="80"
+                Height="80" 
+                Content="4" FontSize="45" 
+                FontFamily="Lucida Bright" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top" 
+                Margin="15,111.2,0,0"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center" 
+                BorderBrush="{x:Null}"
+                x:Name="btnNum4"
+                Click="btnNum4_Click"
+                >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFB3B3B3" Offset="0"/>
+                    <GradientStop Color="#FFD0D0D0" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+            <Button.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF222020" Offset="1"/>
+                    <GradientStop Color="#FF1F1B1B"/>
+                </LinearGradientBrush>
+            </Button.Foreground>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button Grid.Row="1"
+                Width="80"
+                Height="80" 
+                Content="5" FontSize="45" 
+                FontFamily="Lucida Bright" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top" 
+                Margin="115,111.2,0,0"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center" 
+                BorderBrush="{x:Null}"
+                x:Name="btnNum5"
+                Click="btnNum5_Click"
+                >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFB3B3B3" Offset="0"/>
+                    <GradientStop Color="#FFD0D0D0" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+            <Button.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF222020" Offset="1"/>
+                    <GradientStop Color="#FF1F1B1B"/>
+                </LinearGradientBrush>
+            </Button.Foreground>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button Grid.Row="1"
+                Width="80"
+                Height="80" 
+                Content="6" FontSize="45" 
+                FontFamily="Lucida Bright" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top" 
+                Margin="215,111.2,0,0"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center" 
+                BorderBrush="{x:Null}"
+                x:Name="btnNum6"
+                Click="btnNum6_Click"
+                >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFB3B3B3" Offset="0"/>
+                    <GradientStop Color="#FFD0D0D0" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+            <Button.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF222020" Offset="1"/>
+                    <GradientStop Color="#FF1F1B1B"/>
+                </LinearGradientBrush>
+            </Button.Foreground>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button Grid.Row="1"
+                Width="80"
+                Height="80" 
+                Content="7" FontSize="45" 
+                FontFamily="Lucida Bright" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top" 
+                Margin="15,216.2,0,0"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center" 
+                BorderBrush="{x:Null}"
+                x:Name="btnNum7"
+                Click="btnNum7_Click"
+                >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFB3B3B3" Offset="0"/>
+                    <GradientStop Color="#FFD0D0D0" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+            <Button.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF222020" Offset="1"/>
+                    <GradientStop Color="#FF1F1B1B"/>
+                </LinearGradientBrush>
+            </Button.Foreground>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button Grid.Row="1"
+                Width="80"
+                Height="80" 
+                Content="8" FontSize="45" 
+                FontFamily="Lucida Bright" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top" 
+                Margin="115,216.2,0,0"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center" 
+                BorderBrush="{x:Null}"
+                x:Name="btnNum8"
+                Click="btnNum8_Click"
+                >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFB3B3B3" Offset="0"/>
+                    <GradientStop Color="#FFD0D0D0" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+            <Button.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF222020" Offset="1"/>
+                    <GradientStop Color="#FF1F1B1B"/>
+                </LinearGradientBrush>
+            </Button.Foreground>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button Grid.Row="1"
+                Width="80"
+                Height="80" 
+                Content="9" FontSize="45" 
+                FontFamily="Lucida Bright" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top" 
+                Margin="215,216.2,0,0"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center" 
+                BorderBrush="{x:Null}"
+                x:Name="btnNum9"
+                Click="btnNum9_Click"
+                >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFB3B3B3" Offset="0"/>
+                    <GradientStop Color="#FFD0D0D0" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+            <Button.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF222020" Offset="1"/>
+                    <GradientStop Color="#FF1F1B1B"/>
+                </LinearGradientBrush>
+            </Button.Foreground>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button Grid.Row="1"
+                Width="80"
+                Height="80" 
+                Content="00" FontSize="45" 
+                FontFamily="Lucida Bright" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top" 
+                Margin="115,315.2,0,0"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center" 
+                BorderBrush="{x:Null}"
+                x:Name="btnNum00"
+                Click="btnNum00_Click"
+                >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFB3B3B3" Offset="0"/>
+                    <GradientStop Color="#FFD0D0D0" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+            <Button.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF222020" Offset="1"/>
+                    <GradientStop Color="#FF1F1B1B"/>
+                </LinearGradientBrush>
+            </Button.Foreground>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+
+        <Button Grid.Row="1"
+                Width="80"
+                Height="80" 
+                Content="0" FontSize="45" 
+                FontFamily="Lucida Bright" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top" 
+                Margin="15,315.2,0,0"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center" 
+                BorderBrush="{x:Null}"
+                x:Name="btnNum0"
+                Click="btnNum0_Click"
+                >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFB3B3B3" Offset="0"/>
+                    <GradientStop Color="#FFD0D0D0" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+            <Button.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF222020" Offset="1"/>
+                    <GradientStop Color="#FF1F1B1B"/>
+                </LinearGradientBrush>
+            </Button.Foreground>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+
+        <Button Grid.Row="1"
+                Width="80"
+                Height="80" 
+                Content="," FontSize="45" 
+                FontFamily="Lucida Bright" 
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top" 
+                Margin="215,315.2,0,0"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center" 
+                BorderBrush="{x:Null}"
+                x:Name="btnNumCom"
+                Click="btnNumCom_Click"
+                >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFB3B3B3" Offset="0"/>
+                    <GradientStop Color="#FFD0D0D0" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+            <Button.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF222020" Offset="1"/>
+                    <GradientStop Color="#FF1F1B1B"/>
+                </LinearGradientBrush>
+            </Button.Foreground>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+    </Grid>
+
+</Window>
